@@ -1,0 +1,20 @@
+import axios, { AxiosResponse } from "axios";
+
+const axiosInstance = axios.create({
+  baseURL: '<%= baseUrl %>',
+});
+
+<% for(var i=0; i < types.length; i++) { %>
+<%= types[i] %>
+<% } %>
+<% for(var i=0; i < implementationData.length; i++) { %>
+<%- implementationData[i] %>
+<% } %>
+
+const sdk = {
+  axiosInstance,
+  <% for(var i=0; i < keysImpl.length; i++) { %><%-keysImpl[i] %>,
+  <% } %>
+};
+
+export default sdk;
